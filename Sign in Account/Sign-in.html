@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Puzzle Game - Sign-in Page</title>
+  <link rel="stylesheet" href="Sign-in.css">
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault(); // Prevent default form submission
+      const formData = new FormData(event.target);
+
+      fetch('login.php', {
+        method: 'POST',
+        body: formData,
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          alert(data); // Show a popup message
+
+          // Redirect to welcome page if login is successful
+          if (data.includes("Login successful")) {
+            window.location.href = "../Welcome/welcome.php"; // Redirect to welcome page
+          }
+        })
+        .catch((error) => {
+          console.log('Error:', error);
+          alert("An error occurred. Please try again.");
+        });
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="game-card">
+      <h1 class="center-align">Welcome to the Number Puzzle Game!</h1>
+      <form onsubmit="handleFormSubmit(event)">
+        <!-- Username Input -->
+        <div class="username-section">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" placeholder="username" required />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="password" required />
+          <button class="btn" type="submit">Sign In</button>
+        </div>
+      </form>
+      <div class="score-section">
+        <p class="center-align">If you don't have an account</p>
+        <p class="center-align">
+          <a href="../Register/register.html" class="link" style="color: #00bcd4">Create an Account</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

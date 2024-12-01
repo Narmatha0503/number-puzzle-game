@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Puzzle Game - Register Page</title>
+  <link rel="stylesheet" href="register.css">
+  <script>
+    function showMessage(message) {
+      alert(message);
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault(); // Prevent default form submission
+      const formData = new FormData(event.target);
+
+      fetch('register.php', {
+        method: 'POST',
+        body: formData,
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          showMessage(data);
+
+          // Check if registration was successful
+          if (data.includes("successful")) {
+            window.location.href = "../Sign in Account/Sign-in.html"; // Redirect to login page
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          showMessage("An error occurred. Please try again.");
+        });
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="game-card">
+      <h1 class="center-align">Register for the Game</h1>
+      <form onsubmit="handleFormSubmit(event)">
+        <!-- Username Input -->
+        <div class="username-section">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" placeholder="username" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="email" required />
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="password" required />
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" name="confirm_password" placeholder="confirm-password" required />
+          <button class="btn" type="submit">Register</button>
+        </div>
+      </form>
+      <div class="score-section">
+        <p class="center-align">If you already have an account</p>
+        <p class="center-align">
+          <a href="../Sign in Account/Sign-in.html" class="link" style="color: #00bcd4">Sign In Account</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

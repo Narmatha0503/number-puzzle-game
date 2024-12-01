@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display Image</title>
+</head>
+<body>
+<h1>Display Image from URL</h1>
+<!-- Image element to display the image -->
+<img id="bananaImage" alt="Banana Image" style="max-width: 100%; height: auto;">
+ 
+  <!-- JavaScript to set the image source -->
+<script>
+    // URL of the image
+    const imageUrl = 'https://www.sanfoh.com/uob/banana/data/t27f21a4fa747ab5346ef03c14dn104.png';
+    // Get the image element by its ID
+    const imageElement = document.getElementById('bananaImage');
+    // Set the src attribute of the image element to the image URL
+    imageElement.src = imageUrl;
+</script>
+</body>
+</html>

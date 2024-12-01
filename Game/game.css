@@ -1,0 +1,123 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body with Background Image */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    background: url('b2.png') no-repeat center center fixed;     
+    background-size: cover;
+    color: white;
+}
+
+/* The container for the game */
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-radius: 10px;
+}
+
+/* Left side - Game Info */
+.game-info {
+    flex: 1;
+    text-align: left;
+    padding-right: 30px;
+    background-color: rgba(255, 255, 255, 0.2); /* Transparent white background for the info */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Right side - Puzzle Board */
+.puzzle-container {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Input field styling */
+input {
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 200px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color:  #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color:  #00bcd4;
+}
+
+/* Puzzle grid layout */
+.puzzle {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    margin-top: 20px;
+}
+
+/* Individual tile style */
+.tile {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#game-info {
+    display: none;
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 28px;
+}
+
+/* Game info styling */
+p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+#logout-btn {
+    padding: 10px 30px;
+    font-size: 16px;
+}
+
+/* Hover effect for puzzle tiles */
+.tile:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+
